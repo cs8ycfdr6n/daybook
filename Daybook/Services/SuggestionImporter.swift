@@ -1,5 +1,7 @@
 import Foundation
+#if DAYBOOK_MOMENTS
 import JournalingSuggestions
+#endif
 
 struct EntryDraft: Sendable {
     var title: String
@@ -12,6 +14,7 @@ struct EntryDraft: Sendable {
 }
 
 enum SuggestionImporter {
+    #if DAYBOOK_MOMENTS
     /// Copy suggestion assets immediately. The photo URLs are only valid inside this call.
     static func makeDraft(from suggestion: JournalingSuggestion) async -> EntryDraft {
         let photos = await suggestion.content(forType: JournalingSuggestion.Photo.self)
@@ -58,4 +61,5 @@ enum SuggestionImporter {
         }
         return try? Data(contentsOf: url)
     }
+    #endif
 }

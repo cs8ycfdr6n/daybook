@@ -1,4 +1,6 @@
+#if DAYBOOK_MOMENTS
 import JournalingSuggestions
+#endif
 import PhotosUI
 import SwiftData
 import SwiftUI
@@ -45,6 +47,7 @@ struct ComposerView: View {
                         .lineLimit(8...24)
                     imageStrip
                     HStack(spacing: 12) {
+                        #if DAYBOOK_MOMENTS
                         JournalingSuggestionsPicker {
                             Label("Moments", systemImage: "sparkles")
                         } onCompletion: { suggestion in
@@ -61,6 +64,7 @@ struct ComposerView: View {
                         }
                         .buttonStyle(.bordered)
                         .tint(Color.tide)
+                        #endif
 
                         PhotosPicker(selection: $photoItem, matching: .images) {
                             Label("Photo", systemImage: "photo")

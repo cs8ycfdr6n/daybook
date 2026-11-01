@@ -122,7 +122,7 @@ struct FeedView: View {
             Text(entries.isEmpty ? "Nothing written yet." : "Nothing matches.")
                 .font(.system(.title3, design: .serif))
                 .foregroundStyle(Color.ink)
-            Text("New entry is a blank page. Moments pulls photos, workouts, places, music, and prompts from this iPhone. The Simulator has none of that.")
+            Text("New entry is a blank page. Add a photo from this iPhone. Moments stays off until the Apple account is in the paid Developer Program.")
                 .font(.subheadline)
                 .foregroundStyle(Color.ink.opacity(0.68))
         }
